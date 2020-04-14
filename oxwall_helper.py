@@ -67,3 +67,18 @@ class OxwallHelper:
         )
         self.driver.find_element_by_name("save").click()
 
+    def find_by_xpath_and_click(self, elm_xpath):
+        element = self.wait.until(
+            EC.visibility_of_any_elements_located((By.XPATH, elm_xpath))
+        )[0]
+        element.click()
+        return element
+
+    def find_by_name_and_click(self, elm_name):
+        element = self.wait.until(
+                EC.visibility_of_any_elements_located((By.NAME, elm_name))
+            )[0]
+        element.click()
+        return element
+
+
